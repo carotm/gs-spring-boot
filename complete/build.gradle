@@ -17,11 +17,19 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	// end::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.cloud:spring-cloud-gcp-starter'
+    implementation 'org.springframework.cloud:spring-cloud-gcp-starter-storage'
 	// tag::tests[]
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	// end::tests[]
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-gcp-dependencies:1.2.3.RELEASE"
+    }
 }
 
 test {
